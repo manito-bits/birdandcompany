@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-
-REDESIGN
-
 <html lang="de">
 <head>
     <meta charset="UTF-8">
@@ -33,7 +30,7 @@ REDESIGN
             color: var(--black);
             line-height: 1.6;
             overflow-x: hidden;
-            word-wrap: break-word;           /* ← NEU responsive */
+            word-wrap: break-word;
             overflow-wrap: break-word; 
         }
 
@@ -381,6 +378,7 @@ REDESIGN
             font-size: 1.2rem;
             color: var(--white);
             transition: all 0.6s ease;
+            white-space: nowrap; /* ← FIX: Verhindert Zeilenumbruch */
         }
 
         .problem-card:hover .problem-icon {
@@ -547,6 +545,7 @@ REDESIGN
             color: var(--black);
             line-height: 1;
             transition: color 0.6s ease;
+            white-space: nowrap; /* ← FIX: Verhindert Zeilenumbruch */
         }
 
         .service-item:hover .service-number {
@@ -616,6 +615,15 @@ REDESIGN
             color: var(--accent);
         }
 
+        /* FORM STATUS MESSAGE */
+        #formStatus {
+            display: none;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+        }
+
         form {
             display: flex;
             flex-direction: column;
@@ -646,7 +654,7 @@ REDESIGN
         input:focus, textarea:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(161, 54, 255, 0.1);
+            box-shadow: 0 0 0 3px rgba(40, 168, 47, 0.1);
             transform: translateY(-2px);
         }
 
@@ -974,8 +982,8 @@ REDESIGN
     <section class="hero">
         <div class="hero-content">
             <div class="hero-label">Digital Sales Enablement</div>
-            <h1>Digital, um mehr<br>zu verkaufen.</h1>
-            <p class="hero-subtitle">Wir helfen technischen B2B-Unternehmen, ihre Website als echten Vertriebskanal zu nutzen – mit Fokus auf messbare Anfragengenerierung.</p>
+            <h1>Ihre Website als<br>B2B Vertriebskanal</h1>
+            <p class="hero-subtitle">Wir unterstützen spezialisierte Unternehmen dabei, ihre Website als echten Vertriebskanal zu nutzen - mit dem Fokus kontinuierlich qualifizierte Anfragen zu gewinnen.</p>
             <div class="cta-group">
                 <a href="CALENDLY_LINK_HIER" class="cta-button cta-primary">30-Min Erstgespräch</a>
                 <a href="#problems" class="cta-button cta-secondary">Herausforderungen ansehen</a>
@@ -987,29 +995,29 @@ REDESIGN
     <section id="problems" class="problems">
         <div class="section-header">
             <div class="section-label">Herausforderungen</div>
-            <h2>Herausforderungen,<br>die wir lösen</h2>
+            <h2>Typische Herausforderungen,<br>unserer Kunden</h2>
             <p class="section-intro">Ihre Herausforderungen kennen wir – und haben konkrete Lösungen.</p>
         </div>
         <div class="problems-grid">
             <div class="problem-card">
                 <div class="problem-icon">01</div>
-                <h3>Ihre Website sieht professionell aus, aber Anfragen bleiben aus</h3>
-                <p>Sie investieren in Ihr digitales Auftreten, doch die Conversion stimmt nicht. Ihre Besucher verlassen die Seite, ohne Kontakt aufzunehmen.</p>
+                <h3>Professioneller Auftritt ohne Vertriebswirkung</h3>
+                <p>Die Website informiert – generiert aber keine Anfragen.</p>
             </div>
             <div class="problem-card">
                 <div class="problem-icon">02</div>
-                <h3>Technische Expertise ist da, aber Kunden finden andere</h3>
-                <p>Ihr Produkt ist überlegen, aber im Entscheidungsprozess verlieren Sie gegen Wettbewerber mit besserer digitaler Präsenz.</p>
+                <h3>Starke Lösungen, unklare digitale Positionierung</h3>
+                <p>Angebot und Nutzen sind vorhanden, kommen online aber nicht (klar genug) an.</p>
             </div>
             <div class="problem-card">
                 <div class="problem-icon">03</div>
-                <h3>Investition in Website, aber keine messbare Wirkung</h3>
-                <p>Sie haben Geld in Relaunch und Content gesteckt, können aber nicht nachvollziehen, ob es sich auszahlt.</p>
+                <h3>Investitionen ohne belastbare Kennzahlen</h3>
+                <p>Marketingmaßnahmen laufen, der Erfolg bleibt jedoch schwer messbar.</p>
             </div>
             <div class="problem-card">
                 <div class="problem-icon">04</div>
-                <h3>Wettbewerber mit schlechteren Produkten gewinnen online</h3>
-                <p>Sie wissen, dass Sie das bessere Angebot haben – aber im digitalen Raum sind Sie nicht sichtbar genug.</p>
+                <h3>Digitale Wettbewerbsnachteil</h3>
+                <p>Andere sind online präsenter – unabhängig von der Produktqualität.</p>
             </div>
         </div>
     </section>
@@ -1019,7 +1027,7 @@ REDESIGN
         <div class="section-header">
             <div class="section-label">Unser Team</div>
             <h2>Wer wir sind</h2>
-            <p class="section-intro">Drei Berater mit unterschiedlichen Hintergründen – eine gemeinsame Mission.</p>
+            <p class="section-intro">Drei Berater mit unterschiedlichen Hintergründen – ein gemeinsames Ziel.<br>Strategie, Organisation und Kommunikation – mit Fokus auf digitale Vertriebswirkung.</p>
         </div>
         <div class="team-grid">
             <div class="team-card">
@@ -1054,42 +1062,42 @@ REDESIGN
         <div class="section-header">
             <div class="section-label">Unsere Leistungen</div>
             <h2>Wie wir arbeiten</h2>
-            <p class="section-intro">So helfen wir Ihnen, digital mehr zu verkaufen.</p>
+            <p class="section-intro">So helfen wir Ihnen, Ihre Herausforderungen zu überwinden</p>
         </div>
         <ul class="services-list">
             <li class="service-item">
                 <div class="service-number">01</div>
                 <div class="service-content">
                     <h3>Digital-Audit & Conversion-Analyse</h3>
-                    <p>Wir analysieren Ihre digitale Präsenz systematisch: Website, Kundenreise, Wettbewerb. Mit klarem Fokus auf Conversion-Potenziale und Lead-Generierung.</p>
+                    <p>Wir durchleuchten Ihre Website, Kundenreisen und Wettbewerbslandschaft, um Konversionspotenziale aufzudecken.</p>
                 </div>
             </li>
             <li class="service-item">
                 <div class="service-number">02</div>
                 <div class="service-content">
                     <h3>Branchenspezifische Content-Strategie</h3>
-                    <p>Wir entwickeln Inhalte, die Ihre technische Expertise sichtbar machen und Einkäufer in ihrer Entscheidungsfindung abholen.</p>
+                    <p>Wir erstellen maßgeschneiderte Inhalte, die Ihre technische Expertise sichtbar machen und Entscheider abholen.</p>
                 </div>
             </li>
             <li class="service-item">
                 <div class="service-number">03</div>
                 <div class="service-content">
                     <h3>Lead-Generierungs-Systeme</h3>
-                    <p>Von der ersten Recherche bis zur qualifizierten Anfrage – wir bauen digitale Touchpoints, die Interessenten zu Leads machen.</p>
+                    <p>Wir bauen digitale Touchpoints, die Besucher systematisch zu qualifizierten Leads machen.</p>
                 </div>
             </li>
             <li class="service-item">
                 <div class="service-number">04</div>
                 <div class="service-content">
                     <h3>Vertriebs-Integration & Enablement</h3>
-                    <p>Digital und Vertrieb müssen zusammenspielen. Wir sorgen dafür, dass Ihr Team die neuen Tools nutzt und Leads richtig qualifiziert.</p>
+                    <p>Wir sorgen dafür, dass Vertrieb und digitale Prozesse Hand in Hand funktionieren.</p>
                 </div>
             </li>
             <li class="service-item">
                 <div class="service-number">05</div>
                 <div class="service-content">
                     <h3>Messbare Anfragensteigerung</h3>
-                    <p>Wir definieren klare KPIs, implementieren Tracking und optimieren kontinuierlich – für nachweisbare Ergebnisse.</p>
+                    <p>Wir machen Erfolge messbar: mit KPIs, Tracking und kontinuierlicher Optimierung für echte Ergebnisse.</p>
                 </div>
             </li>
         </ul>
@@ -1100,8 +1108,8 @@ REDESIGN
         <div class="contact-wrapper">
             <div class="section-header">
                 <div class="section-label">Kontakt</div>
-                <h2>Lassen Sie<br>uns sprechen.</h2>
-                <p class="section-intro">Sie haben eine Frage oder möchten ausloten, ob wir zueinander passen? Schreiben Sie uns.</p>
+                <h2>Lassen Sie<br>uns schnacken..</h2>
+                <p class="section-intro">Ob Frage, Projektidee oder unverbindlicher Fit Check – schreiben Sie uns.</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-info">
@@ -1109,7 +1117,7 @@ REDESIGN
                     <div class="contact-details">
                         <p>
                             <span class="contact-label">E-Mail</span>
-                            <p><a href="mailto:kontakt@birdandcompany.de">kontakt@birdandcompany.de</a></p>
+                            <a href="mailto:kontakt@birdandcompany.de">kontakt@birdandcompany.de</a>
                         </p>
                         <p>
                             <span class="contact-label">Telefon</span>
@@ -1117,31 +1125,34 @@ REDESIGN
                         </p>
                     </div>
                 </div>
-                <form>
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Unternehmen</label>
-                        <input type="text" id="company" name="company" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-Mail</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Ihre Nachricht</label>
-                        <textarea id="message" name="message" required></textarea>
-                    </div>
-                    <div class="checkbox-group">
-                        <input type="checkbox" id="privacy" name="privacy" required>
-                        <label for="privacy">
-                            Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> zur Kenntnis genommen.
-                        </label>
-                    </div>
-                    <button type="submit"><span>Nachricht senden</span></button>
-                </form>
+                <div>
+                    <div id="formStatus"></div>
+                    <form id="contactForm" action="https://formspree.io/f/xpqjageq" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Unternehmen</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Ihre Nachricht</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="privacy" name="privacy" required>
+                            <label for="privacy">
+                                Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> zur Kenntnis genommen.
+                            </label>
+                        </div>
+                        <button type="submit"><span>Nachricht senden</span></button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
@@ -1150,7 +1161,7 @@ REDESIGN
     <footer>
         <div class="footer-content">
             <div class="footer-left">
-                <h2>Gute Beratung braucht<br>keine große Bühne.</h2>
+                <h2>Digital Sales Enablement für spezialisierte B2B-Unternehmen</h2>
                 <div class="footer-logo">
                     <img src="Bird&Company_Logo_White.png" alt="BIRD & COMPANY">
                 </div>
@@ -1230,7 +1241,6 @@ REDESIGN
         }
     });
 </script>
-
 
 </body>
 </html>
