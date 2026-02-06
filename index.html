@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+
+REDESIGN
+
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIRD & Company – Digital als Vertriebskanal für B2B</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #1a1a1a;
+            --white: #FFFFFF;
+            --gray-light: #f5f5f5;
+            --gray-mid: #999999;
+            --gray-dark: #666666;
+            --accent: #28a82f;
+            --font-heading: 'Special Gothic Expanded One', sans-serif;
+            --font-body: 'Syne', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* CAPACITY BANNER */
+        .capacity-banner {
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+            padding: 0.75rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1001;
+            animation: slideInFromTop 0.6s ease-out;
+        }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 36px;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: var(--white);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            animation: slideInFromTop 0.6s ease-out 0.1s both;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--black);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .nav-cta {
+            background: var(--black);
+            color: var(--white);
+            padding: 0.65rem 1.5rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-cta::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--accent);
+            transform: translate(-50%, -50%);
+            transition: width 1s ease-out, height 1s ease-out;
+        }
+
+        .nav-cta:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .nav-cta:hover {
+            color: var(--white);
+        }
+
+        .nav-cta span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* HERO */
+        .hero {
+            padding: 180px 5% 100px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray-mid);
+            margin-bottom: 2rem;
+            font-weight: 600;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 7vw, 6rem);
+            font-weight: 400;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            max-width: 900px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            line-height: 1.6;
+            color: var(--gray-dark);
+            max-width: 700px;
+            margin-bottom: 3rem;
+            font-weight: 400;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 1rem 2rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: var(--font-body);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transform: translate(-50%, -50%);
+            transition: width 1s ease-out, height 1s ease-out;
+        }
+
+        .cta-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .cta-primary {
+            background: var(--black);
+            color: var(--white);
+            transition: all 0.6s ease;
+        }
+
+        .cta-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--black);
+            border: 1px solid var(--black);
+            transition: all 0.6s ease;
+        }
+
+        .cta-secondary:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 80px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out both;
+        }
+
+        section:nth-of-type(2) .section-header {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-of-type(3) .section-header {
+            animation-delay: 0.2s;
+        }
+
+        section:nth-of-type(4) .section-header {
+            animation-delay: 0.2s;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gray-mid);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-intro {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray-dark);
+            max-width: 700px;
+        }
+
+        /* PROBLEMS */
+        .problems {
+            background: var(--gray-light);
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2px;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: var(--white);
+        }
+
+        .problem-card {
+            background: var(--white);
+            padding: 3rem;
+            transition: all 0.4s ease;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .problem-card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .problem-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .problem-card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .problem-card:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .problem-card:hover {
+            background: var(--gray-light);
+            transform: translateY(-8px);
+        }
+
+        .problem-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            color: var(--white);
+            transition: all 0.6s ease;
+        }
+
+        .problem-card:hover .problem-icon {
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
+        .problem-card h3 {
+            font-family: var(--font-body);
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .problem-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            color: var(--gray-dark);
+        }
+
+        /* TEAM */
+        .team {
+            background: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--white);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .team-card:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .team-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .team-card:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .team-image {
+            width: 100%;
+            aspect-ratio: 4/4;
+            background: var(--gray-light);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            transition: transform 0.6s ease;
+        }
+
+        .team-card:hover .team-image img {
+            transform: scale(1.08);
+        }
+
+        .team-name {
+            font-family: var(--font-body);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-role {
+            font-size: 0.85rem;
+            color: var(--gray-mid);
+            margin-bottom: 1rem;
+        }
+
+        .linkedin-link {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .linkedin-link::before {
+            content: "[";
+        }
+
+        .linkedin-link::after {
+            content: "]";
+        }
+
+        .linkedin-link:hover {
+            color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        /* SERVICES */
+        .services {
+            background: var(--gray-light);
+        }
+
+        .services-list {
+            list-style: none;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 4rem;
+            padding: 3rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            opacity: 0;
+            animation: fadeInUp 0.6s ease-out both;
+            transition: all 0.3s ease;
+        }
+
+        .service-item:nth-child(1) {
+            animation-delay: 0.3s;
+        }
+
+        .service-item:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .service-item:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .service-item:nth-child(4) {
+            animation-delay: 0.6s;
+        }
+
+        .service-item:nth-child(5) {
+            animation-delay: 0.7s;
+        }
+
+        .service-item:last-child {
+            border-bottom: none;
+        }
+
+        .service-item:hover {
+            transform: translateX(10px);
+        }
+
+        .service-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            font-weight: 400;
+            color: var(--black);
+            line-height: 1;
+            transition: color 0.6s ease;
+        }
+
+        .service-item:hover .service-number {
+            color: var(--accent);
+        }
+
+        .service-content h3 {
+            font-family: var(--font-body);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--gray-dark);
+        }
+
+        /* CONTACT */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 6rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .contact-details p {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gray-mid);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .contact-details a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--accent);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--black);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(0,0,0,0.15);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(161, 54, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            min-width: 18px;
+            height: 18px;
+            margin-top: 0.2rem;
+            cursor: pointer;
+            accent-color: var(--accent);
+        }
+
+        .checkbox-group label {
+            font-size: 0.85rem;
+            cursor: pointer;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        .checkbox-group a {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--accent);
+            transform: translate(-50%, -50%);
+            transition: width 1s ease-out, height 1s ease-out;
+        }
+
+        button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+        }
+
+        button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        button:disabled {
+            background: var(--gray-mid);
+            cursor: not-allowed;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 5% 40px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 6rem;
+        }
+
+        .footer-left h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 2rem;
+            color: var(--white);
+        }
+
+        .footer-logo {
+            height: 50px;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+            transform: translateX(5px);
+        }
+
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .footer-contact p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer-contact a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 3rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            header {
+                padding: 1.5rem 3%;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 60px 3%;
+            }
+
+            .problems-grid,
+            .team-grid,
+            .contact-grid,
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-item {
+                grid-template-columns: 60px 1fr;
+                gap: 2rem;
+            }
+
+            .service-number {
+                font-size: 2rem;
+            }
+        }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- CAPACITY BANNER -->
+    <div class="capacity-banner">
+        Freie Kapazität: Wir nehmen noch 2 Projekte im Q2 an
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="Bird&Company_Logo_Grey.png" alt="BIRD & COMPANY">
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#problems">Herausforderungen</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#services">Leistungen</a></li>
+            </ul>
+        </nav>
+        <a href="#contact" class="nav-cta"><span>Kontakt</span></a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-label">Digital Sales Enablement</div>
+            <h1>Digital, um mehr<br>zu verkaufen.</h1>
+            <p class="hero-subtitle">Wir helfen technischen B2B-Unternehmen, ihre Website als echten Vertriebskanal zu nutzen – mit Fokus auf messbare Anfragengenerierung.</p>
+            <div class="cta-group">
+                <a href="CALENDLY_LINK_HIER" class="cta-button cta-primary">30-Min Erstgespräch</a>
+                <a href="#problems" class="cta-button cta-secondary">Herausforderungen ansehen</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMS -->
+    <section id="problems" class="problems">
+        <div class="section-header">
+            <div class="section-label">Herausforderungen</div>
+            <h2>Herausforderungen,<br>die wir lösen</h2>
+            <p class="section-intro">Ihre Herausforderungen kennen wir – und haben konkrete Lösungen.</p>
+        </div>
+        <div class="problems-grid">
+            <div class="problem-card">
+                <div class="problem-icon">01</div>
+                <h3>Ihre Website sieht professionell aus, aber Anfragen bleiben aus</h3>
+                <p>Sie investieren in Ihr digitales Auftreten, doch die Conversion stimmt nicht. Ihre Besucher verlassen die Seite, ohne Kontakt aufzunehmen.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">02</div>
+                <h3>Technische Expertise ist da, aber Kunden finden andere</h3>
+                <p>Ihr Produkt ist überlegen, aber im Entscheidungsprozess verlieren Sie gegen Wettbewerber mit besserer digitaler Präsenz.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">03</div>
+                <h3>Investition in Website, aber keine messbare Wirkung</h3>
+                <p>Sie haben Geld in Relaunch und Content gesteckt, können aber nicht nachvollziehen, ob es sich auszahlt.</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">04</div>
+                <h3>Wettbewerber mit schlechteren Produkten gewinnen online</h3>
+                <p>Sie wissen, dass Sie das bessere Angebot haben – aber im digitalen Raum sind Sie nicht sichtbar genug.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="team">
+        <div class="section-header">
+            <div class="section-label">Unser Team</div>
+            <h2>Wer wir sind</h2>
+            <p class="section-intro">Drei Berater mit unterschiedlichen Hintergründen – eine gemeinsame Mission.</p>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="team_rene.jpg" alt="René Scheele">
+                </div>
+                <h3 class="team-name">René Scheele</h3>
+                <p class="team-role">Strategie & Positionierung</p>
+                <a href="https://www.linkedin.com/in/scheelerene/" target="_blank" class="linkedin-link">LinkedIn</a>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="team_tristan.jpg" alt="Tristan Kurt">
+                </div>
+                <h3 class="team-name">Tristan Kurt</h3>
+                <p class="team-role">Organisation & Change</p>
+                <a href="https://www.linkedin.com/in/tristan-kurt-0946b7295/" target="_blank" class="linkedin-link">LinkedIn</a>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="team_daniel.jpg" alt="Daniel Armando Scheele">
+                </div>
+                <h3 class="team-name">Daniel Armando Scheele</h3>
+                <p class="team-role">Kommunikation & Marke</p>
+                <a href="https://www.linkedin.com/in/armando-scheele" target="_blank" class="linkedin-link">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="services">
+        <div class="section-header">
+            <div class="section-label">Unsere Leistungen</div>
+            <h2>Wie wir arbeiten</h2>
+            <p class="section-intro">So helfen wir Ihnen, digital mehr zu verkaufen.</p>
+        </div>
+        <ul class="services-list">
+            <li class="service-item">
+                <div class="service-number">01</div>
+                <div class="service-content">
+                    <h3>Digital-Audit & Conversion-Analyse</h3>
+                    <p>Wir analysieren Ihre digitale Präsenz systematisch: Website, Kundenreise, Wettbewerb. Mit klarem Fokus auf Conversion-Potenziale und Lead-Generierung.</p>
+                </div>
+            </li>
+            <li class="service-item">
+                <div class="service-number">02</div>
+                <div class="service-content">
+                    <h3>Branchenspezifische Content-Strategie</h3>
+                    <p>Wir entwickeln Inhalte, die Ihre technische Expertise sichtbar machen und Einkäufer in ihrer Entscheidungsfindung abholen.</p>
+                </div>
+            </li>
+            <li class="service-item">
+                <div class="service-number">03</div>
+                <div class="service-content">
+                    <h3>Lead-Generierungs-Systeme</h3>
+                    <p>Von der ersten Recherche bis zur qualifizierten Anfrage – wir bauen digitale Touchpoints, die Interessenten zu Leads machen.</p>
+                </div>
+            </li>
+            <li class="service-item">
+                <div class="service-number">04</div>
+                <div class="service-content">
+                    <h3>Vertriebs-Integration & Enablement</h3>
+                    <p>Digital und Vertrieb müssen zusammenspielen. Wir sorgen dafür, dass Ihr Team die neuen Tools nutzt und Leads richtig qualifiziert.</p>
+                </div>
+            </li>
+            <li class="service-item">
+                <div class="service-number">05</div>
+                <div class="service-content">
+                    <h3>Messbare Anfragensteigerung</h3>
+                    <p>Wir definieren klare KPIs, implementieren Tracking und optimieren kontinuierlich – für nachweisbare Ergebnisse.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="contact-wrapper">
+            <div class="section-header">
+                <div class="section-label">Kontakt</div>
+                <h2>Lassen Sie<br>uns sprechen.</h2>
+                <p class="section-intro">Sie haben eine Frage oder möchten ausloten, ob wir zueinander passen? Schreiben Sie uns.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Kontaktinformationen</h3>
+                    <div class="contact-details">
+                        <p>
+                            <span class="contact-label">E-Mail</span>
+                            <p><a href="mailto:kontakt@birdandcompany.de">kontakt@birdandcompany.de</a></p>
+                        </p>
+                        <p>
+                            <span class="contact-label">Telefon</span>
+                            <a href="tel:+4915203465293">+49 (0) 1520 3465293</a>
+                        </p>
+                    </div>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Unternehmen</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Ihre Nachricht</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacy" name="privacy" required>
+                        <label for="privacy">
+                            Ich habe die <a href="datenschutz.html" target="_blank">Datenschutzerklärung</a> zur Kenntnis genommen.
+                        </label>
+                    </div>
+                    <button type="submit"><span>Nachricht senden</span></button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-left">
+                <h2>Gute Beratung braucht<br>keine große Bühne.</h2>
+                <div class="footer-logo">
+                    <img src="Bird&Company_Logo_White.png" alt="BIRD & COMPANY">
+                </div>
+                <div class="footer-links">
+                    <a href="impressum.html">Impressum</a>
+                    <a href="datenschutz.html">Datenschutz</a>
+                </div>
+            </div>
+            <div class="footer-right">
+                <div class="footer-contact">
+                   <p><a href="mailto:kontakt@birdandcompany.de">kontakt@birdandcompany.de</a></p>
+                    <p>+49 (0) 1520 3465293</p>
+                </div>
+                <p class="copyright">© 2026 BIRD & Company</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Vielen Dank für Ihre Nachricht! Wir melden uns innerhalb von 24 Stunden bei Ihnen.');
+        });
+    </script>
+</body>
+</html>
