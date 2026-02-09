@@ -2,7 +2,6 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <meta name="robots" content="noindex, nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIRD & Company – Digital als Vertriebskanal für B2B</title>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Special+Gothic+Expanded+One&display=swap" rel="stylesheet">
@@ -19,7 +18,7 @@
             --gray-light: #f5f5f5;
             --gray-mid: #999999;
             --gray-dark: #666666;
-            --accent: #28a82f;
+            --accent: #087a0b;
             --font-heading: 'Special Gothic Expanded One', sans-serif;
             --font-body: 'Syne', sans-serif;
         }
@@ -31,7 +30,19 @@
             line-height: 1.6;
             overflow-x: hidden;
             word-wrap: break-word;
-            overflow-wrap: break-word; 
+            overflow-wrap: break-word;
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
+        }
+
+        /* Prevent word breaking in all headings */
+        h1, h2, h3, h4, h5, h6 {
+            -webkit-hyphens: none;
+            -moz-hyphens: none;
+            -ms-hyphens: none;
+            hyphens: none;
         }
 
         /* ANIMATIONS */
@@ -194,13 +205,15 @@
 
         .hero h1 {
             font-family: var(--font-heading);
-            font-size: clamp(3rem, 7vw, 6rem);
+            font-size: clamp(2rem, 7vw, 6rem);
             font-weight: 400;
-            line-height: 1;
+            line-height: 1.15;
             letter-spacing: -0.02em;
             margin-bottom: 2rem;
             max-width: 900px;
             animation: fadeInUp 0.8s ease-out 0.3s both;
+            hyphens: none;
+            word-break: normal;
         }
 
         .hero-subtitle {
@@ -310,11 +323,13 @@
 
         h2 {
             font-family: var(--font-heading);
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2rem, 5vw, 4rem);
             font-weight: 400;
-            line-height: 1.1;
+            line-height: 1.2;
             letter-spacing: -0.02em;
             margin-bottom: 1.5rem;
+            hyphens: none;
+            word-break: normal;
         }
 
         .section-intro {
@@ -378,7 +393,7 @@
             font-size: 1.2rem;
             color: var(--white);
             transition: all 0.6s ease;
-            white-space: nowrap; /* ← FIX: Verhindert Zeilenumbruch */
+            white-space: nowrap;
         }
 
         .problem-card:hover .problem-icon {
@@ -388,10 +403,11 @@
 
         .problem-card h3 {
             font-family: var(--font-body);
-            font-size: 1.3rem;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
             font-weight: 600;
             line-height: 1.4;
             margin-bottom: 1rem;
+            hyphens: none;
         }
 
         .problem-card p {
@@ -545,7 +561,7 @@
             color: var(--black);
             line-height: 1;
             transition: color 0.6s ease;
-            white-space: nowrap; /* ← FIX: Verhindert Zeilenumbruch */
+            white-space: nowrap;
         }
 
         .service-item:hover .service-number {
@@ -554,9 +570,10 @@
 
         .service-content h3 {
             font-family: var(--font-body);
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
             font-weight: 600;
             margin-bottom: 1rem;
+            hyphens: none;
         }
 
         .service-content p {
@@ -654,7 +671,7 @@
         input:focus, textarea:focus {
             outline: none;
             border-color: var(--accent);
-            box-shadow: 0 0 0 3px rgba(40, 168, 47, 0.1);
+            box-shadow: 0 0 0 3px rgba(8, 122, 11, 0.1);
             transform: translateY(-2px);
         }
 
@@ -845,7 +862,8 @@
             }
 
             .hero h1 {
-                font-size: clamp(2rem, 10vw, 3.5rem);
+                font-size: clamp(1.75rem, 9vw, 3.5rem);
+                line-height: 1.15;
             }
 
             .hero-subtitle {
@@ -883,7 +901,8 @@
             }
 
             h2 {
-                font-size: clamp(2rem, 8vw, 3rem);
+                font-size: clamp(1.75rem, 7vw, 3rem);
+                line-height: 1.2;
             }
 
             .section-intro {
@@ -982,7 +1001,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-label">Digital Sales Enablement</div>
-            <h1>Ihre Website als<br>B2B Vertriebskanal</h1>
+            <h1>Ihre Website als B2B&nbsp;Vertriebskanal</h1>
             <p class="hero-subtitle">Wir unterstützen spezialisierte Unternehmen dabei, ihre Website als echten Vertriebskanal zu nutzen - mit dem Fokus kontinuierlich qualifizierte Anfragen zu gewinnen.</p>
             <div class="cta-group">
                 <a href="CALENDLY_LINK_HIER" class="cta-button cta-primary">30-Min Erstgespräch</a>
@@ -995,7 +1014,7 @@
     <section id="problems" class="problems">
         <div class="section-header">
             <div class="section-label">Herausforderungen</div>
-            <h2>Typische Herausforderungen,<br>unserer Kunden</h2>
+            <h2>Typische Herausforderungen unserer Kunden</h2>
             <p class="section-intro">Ihre Herausforderungen kennen wir – und haben konkrete Lösungen.</p>
         </div>
         <div class="problems-grid">
@@ -1016,7 +1035,7 @@
             </div>
             <div class="problem-card">
                 <div class="problem-icon">04</div>
-                <h3>Digitale Wettbewerbsnachteil</h3>
+                <h3>Digitaler Wettbewerbsnachteil</h3>
                 <p>Andere sind online präsenter – unabhängig von der Produktqualität.</p>
             </div>
         </div>
@@ -1108,7 +1127,7 @@
         <div class="contact-wrapper">
             <div class="section-header">
                 <div class="section-label">Kontakt</div>
-                <h2>Lassen Sie<br>uns schnacken..</h2>
+                <h2>Lassen Sie uns schnacken..</h2>
                 <p class="section-intro">Ob Frage, Projektidee oder unverbindlicher Fit Check – schreiben Sie uns.</p>
             </div>
             <div class="contact-grid">
@@ -1166,6 +1185,7 @@
                     <img src="Bird&Company_Logo_White.png" alt="BIRD & COMPANY">
                 </div>
                 <div class="footer-links">
+                    <a href="https://www.linkedin.com/company/birdandcompany/" target="_blank">LinkedIn</a>
                     <a href="impressum.html">Impressum</a>
                     <a href="datenschutz.html">Datenschutz</a>
                 </div>
