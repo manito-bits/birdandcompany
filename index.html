@@ -210,10 +210,42 @@
             line-height: 1.15;
             letter-spacing: -0.02em;
             margin-bottom: 2rem;
-            max-width: 1600px;
+            max-width: 1400px;
             animation: fadeInUp 0.8s ease-out 0.3s both;
             hyphens: none;
             word-break: normal;
+        }
+
+        /* Controlled line breaks for hero h1 */
+        .hero-break-1 {
+            display: inline; /* Default: show break */
+        }
+
+        /* Large screens (desktop): "Ihre Website als - B2B Vertriebskanal" */
+        @media (min-width: 900px) {
+            .hero-break-1 br {
+                content: '';
+            }
+        }
+
+        /* Medium screens (tablet): hide break, keep on one line if possible */
+        @media (min-width: 600px) and (max-width: 899px) {
+            .hero-break-1 br {
+                display: none;
+            }
+            .hero h1 {
+                font-size: clamp(2.5rem, 6vw, 4.5rem);
+            }
+        }
+
+        /* Small screens (mobile): smaller font to fit better */
+        @media (max-width: 599px) {
+            .hero h1 {
+                font-size: clamp(1.6rem, 8vw, 2.5rem);
+            }
+            .hero-break-1 br {
+                content: '';
+            }
         }
 
         .hero-subtitle {
@@ -861,11 +893,6 @@
                 min-height: 80vh;
             }
 
-            .hero h1 {
-                font-size: clamp(1.75rem, 9vw, 3.5rem);
-                line-height: 1.15;
-            }
-
             .hero-subtitle {
                 font-size: 1rem;
             }
@@ -1001,7 +1028,7 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-label">Digital Sales Enablement</div>
-            <h1>Ihre Website als B2B&nbsp;Vertriebskanal</h1>
+            <h1>Ihre Website als <span class="hero-break-1"><br></span>B2B&nbsp;Vertriebskanal</h1>
             <p class="hero-subtitle">Wir unterstützen spezialisierte Unternehmen dabei, ihre Website als echten Vertriebskanal zu nutzen - mit dem Fokus kontinuierlich qualifizierte Anfragen zu gewinnen.</p>
             <div class="cta-group">
                 <a href="https://calendly.com/tristan-kurt-birdandcompany/30min" class="cta-button cta-primary">30-Min Erstgespräch</a>
