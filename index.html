@@ -231,17 +231,15 @@
 
         /* Controlled line breaks for hero h1 */
         .hero-break-1 {
-            display: inline; /* Default: show break */
+            display: inline;
         }
 
-        /* Large screens (desktop): "Ihre Website als - B2B Vertriebskanal" */
         @media (min-width: 900px) {
             .hero-break-1 br {
                 content: '';
             }
         }
 
-        /* Medium screens (tablet): hide break, keep on one line if possible */
         @media (min-width: 600px) and (max-width: 899px) {
             .hero-break-1 br {
                 display: none;
@@ -251,7 +249,6 @@
             }
         }
 
-        /* Small screens (mobile): smaller font to fit better */
         @media (max-width: 599px) {
             .hero h1 {
                 font-size: clamp(1.6rem, 8vw, 2.5rem);
@@ -1001,6 +998,30 @@
                 padding: 0.85rem 1.5rem;
                 font-size: 0.85rem;
             }
+        }
+
+        /* Cookie Banner Override - verhindert grüne Buttons */
+        #cookieyes-banner button,
+        #cookieyes-banner button:hover,
+        #cookieyes-banner button::before,
+        .cky-btn,
+        .cky-btn:hover,
+        .cky-btn::before,
+        .cky-btn-accept,
+        .cky-btn-reject,
+        .cky-btn-customize {
+            background: inherit !important;
+            color: inherit !important;
+            transform: none !important;
+        }
+
+        #cookieyes-banner button::before,
+        .cky-btn::before {
+            display: none !important;
+        }
+
+        #cookieyes-banner {
+            z-index: 2000 !important;
         }
 
         /* Reduce motion for users who prefer it */
