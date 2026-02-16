@@ -1000,24 +1000,28 @@
             }
         }
 
-        /* Cookie Banner Override - verhindert grüne Buttons */
-        #cookieyes-banner button,
-        #cookieyes-banner button:hover,
+        /* Cookie Banner Custom Styling */
+        /* Verhindert nur den grünen Hover-Effekt, behält aber CookieYes Design */
         #cookieyes-banner button::before,
-        .cky-btn,
-        .cky-btn:hover,
         .cky-btn::before,
-        .cky-btn-accept,
-        .cky-btn-reject,
-        .cky-btn-customize {
-            background: inherit !important;
-            color: inherit !important;
+        .cky-btn-accept::before,
+        .cky-btn-reject::before,
+        .cky-btn-customize::before {
+            display: none !important;
+        }
+
+        #cookieyes-banner button:hover,
+        .cky-btn:hover,
+        .cky-btn-accept:hover,
+        .cky-btn-reject:hover,
+        .cky-btn-customize:hover {
             transform: none !important;
         }
 
-        #cookieyes-banner button::before,
-        .cky-btn::before {
-            display: none !important;
+        /* Optional: Eigenes Hover-Design für Cookie Banner */
+        .cky-btn-accept:hover {
+            background: var(--white) !important;
+            color: var(--black) !important;
         }
 
         #cookieyes-banner {
@@ -1197,7 +1201,7 @@
                     <div class="contact-details">
                         <p>
                             <span class="contact-label">E-Mail</span>
-                            <a href="mailto:kontakt@birdandcompany.de">kontakt@birdandcompany.de</a>
+                            <a href="/cdn-cgi/l/email-protection#472c282933262c3307252e352326292324282a3726293e692322"><span class="__cf_email__" data-cfemail="4e2521203a2f253a0e2c273c2a2f202a2d21233e2f2037602a2b">[email&#160;protected]</span></a>
                         </p>
                         <p>
                             <span class="contact-label">Telefon</span>
@@ -1253,7 +1257,7 @@
             </div>
             <div class="footer-right">
                 <div class="footer-contact">
-                   <p><a href="mailto:kontakt@birdandcompany.de">kontakt@birdandcompany.de</a></p>
+                   <p><a href="/cdn-cgi/l/email-protection#b7dcd8d9c3d6dcc3f7d5dec5d3d6d9d3d4d8dac7d6d9ce99d3d2"><span class="__cf_email__" data-cfemail="9df6f2f3e9fcf6e9ddfff4eff9fcf3f9fef2f0edfcf3e4b3f9f8">[email&#160;protected]</span></a></p>
                     <p>+49 (0) 1520 3465293</p>
                 </div>
                 <p class="copyright">© 2026 BIRD & Company</p>
@@ -1261,7 +1265,7 @@
         </div>
     </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -1312,16 +1316,4 @@
             }
         } catch (error) {
             formStatus.style.display = 'block';
-            formStatus.style.background = '#f8d7da';
-            formStatus.style.color = '#721c24';
-            formStatus.style.border = '1px solid #f5c6cb';
-            formStatus.innerHTML = '✗ Es gab einen Fehler. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt per E-Mail.';
-        } finally {
-            button.disabled = false;
-            buttonText.textContent = originalText;
-        }
-    });
-</script>
-
-</body>
-</html>
+            formStatus.style.background = '#f8d7d
