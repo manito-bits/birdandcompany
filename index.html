@@ -17,9 +17,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="apple-touch-icon" href="favicon.png">
+    <!-- Favicon - Light Mode (dark icon for light backgrounds) -->
+    <link rel="icon" type="image/png" href="favicon-light.png" media="(prefers-color-scheme: light)">
+    
+    <!-- Favicon - Dark Mode (light icon for dark backgrounds) -->
+    <link rel="icon" type="image/png" href="favicon-dark.png" media="(prefers-color-scheme: dark)">
+    
+    <!-- Fallback Favicon -->
+    <link rel="icon" type="image/png" href="favicon-light.png">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="favicon-light.png">
     
     <!-- Open Graph / Social Media Preview -->
     <meta property="og:title" content="BIRD & Company – Digital als Vertriebskanal für B2B">
@@ -49,7 +57,7 @@
             --gray-light: #f5f5f5;
             --gray-mid: #999999;
             --gray-dark: #666666;
-            --accent: #087a0b;
+            --accent: #050f9b;
             --font-heading: 'Special Gothic Expanded One', sans-serif;
             --font-body: 'Syne', sans-serif;
         }
@@ -216,19 +224,39 @@
             min-height: 90vh;
             display: flex;
             align-items: center;
+            background-image: url('Birdandcompany_hero.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        /* Optional: Add overlay for better text readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 0;
         }
 
         .hero-content {
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-label {
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            color: var(--gray-mid);
+            color: var(--white);
             margin-bottom: 2rem;
             font-weight: 600;
             animation: fadeInUp 0.8s ease-out 0.2s both;
@@ -245,6 +273,7 @@
             animation: fadeInUp 0.8s ease-out 0.3s both;
             hyphens: none;
             word-break: normal;
+            color: var(--white);
         }
 
         /* Controlled line breaks for hero h1 */
@@ -279,7 +308,7 @@
         .hero-subtitle {
             font-size: clamp(1.1rem, 2vw, 1.5rem);
             line-height: 1.6;
-            color: var(--gray-dark);
+            color: var(--white);
             max-width: 700px;
             margin-bottom: 3rem;
             font-weight: 400;
@@ -919,6 +948,7 @@
             .hero {
                 padding: 140px 4% 60px;
                 min-height: 80vh;
+                background-attachment: scroll;
             }
 
             .hero-subtitle {
