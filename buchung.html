@@ -1022,7 +1022,7 @@
                 }
 
                 // Now fetch availability using calendar_id
-                const response = await fetch(`${CONFIG.NYLAS_API_URL}/calendars/availability?calendar_id=${primaryCalendar.id}`, {
+                const response = await fetch(`${CONFIG.NYLAS_API_URL}/calendars/availability`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${CONFIG.NYLAS_API_KEY}`,
@@ -1032,7 +1032,8 @@
                         start_time: Math.floor(startOfDay.getTime() / 1000),
                         end_time: Math.floor(endOfDay.getTime() / 1000),
                         duration_minutes: CONFIG.appointmentDuration,
-                        interval_minutes: CONFIG.slotDuration
+                        interval_minutes: CONFIG.slotDuration,
+                        calendar_ids: [primaryCalendar.id]
                     })
                 });
 
