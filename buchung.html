@@ -1001,7 +1001,28 @@
                 const endOfDay = new Date(date);
                 endOfDay.setHours(23, 59, 59, 999);
 
-                const response = await fetch(`${CONFIG.NYLAS_API_URL}/calendars/availability`, {
+                // First, get the calendar ID for this grant
+                const calendarsResponse = await fetch(`${CONFIG.NYLAS_API_URL}/grants/${CONFIG.NYLAS_GRANT_ID}/calendars`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${CONFIG.NYLAS_API_KEY}`,
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!calendarsResponse.ok) {
+                    throw new Error(`Failed to fetch calendars: ${calendarsResponse.status}`);
+                }
+
+                const calendarsData = await calendarsResponse.json();
+                const primaryCalendar = calendarsData.data.find(cal => cal.is_primary) || calendarsData.data[0];
+                
+                if (!primaryCalendar) {
+                    throw new Error('No calendar found');
+                }
+
+                // Now fetch availability using calendar_id
+                const response = await fetch(`${CONFIG.NYLAS_API_URL}/calendars/availability?calendar_id=${primaryCalendar.id}`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${CONFIG.NYLAS_API_KEY}`,
@@ -1011,13 +1032,13 @@
                         start_time: Math.floor(startOfDay.getTime() / 1000),
                         end_time: Math.floor(endOfDay.getTime() / 1000),
                         duration_minutes: CONFIG.appointmentDuration,
-                        interval_minutes: CONFIG.slotDuration,
-                        emails: [CONFIG.NYLAS_GRANT_ID]
+                        interval_minutes: CONFIG.slotDuration
                     })
                 });
 
                 if (!response.ok) {
-                    throw new Error(`Nylas API error: ${response.status}`);
+                    const errorData = await response.json();
+                    throw new Error(`Nylas API error: ${response.status} - ${JSON.stringify(errorData)}`);
                 }
 
                 const data = await response.json();
